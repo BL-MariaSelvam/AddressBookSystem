@@ -13,7 +13,8 @@ public class AddressBookApp {
 			System.out.println("AddressBookSystem");
 			System.out.println("1.Add Contacts");
 			System.out.println("2.View Contacts");
-			System.out.println("3.Exit");
+			System.out.println("3.Edit Contacts");
+			System.out.println("4.Exit");
 			System.out.println("Enter the option to do");
 			int option=sc.nextInt();
 			switch(option) {
@@ -42,6 +43,26 @@ public class AddressBookApp {
 				addressBookService.displayContacts();
 				break;
 			case 3:
+				System.out.println("Enter the firstName to update contact details");
+				String updatedfirstName=sc.next();
+				System.out.println("Enter LastName to update");
+				String updatedlastName=sc.next();
+				System.out.println("Enter Address to update");
+				String updatedaddress=sc.next();
+				System.out.println("Enter City to update");
+				String updatedcity=sc.next();
+				System.out.println("Enter state to update");
+				String updatedstate=sc.next();
+				System.out.println("Enter zip to update");
+				String updatedzip=sc.next();
+				System.out.println("Enter phoneNumber to update");
+				String updatedphoneNumber=sc.next();
+				System.out.println("Enter Email to update");
+				String updatedemail=sc.next();
+				Contacts updatedContact=new Contacts(updatedfirstName,updatedlastName,updatedaddress,updatedcity,updatedstate,updatedzip,updatedphoneNumber,updatedemail);
+				addressBookService.updateContacts(updatedContact);
+				break;	
+			case 4:
 				System.out.println("Returning to home");
 				break;
 			default:

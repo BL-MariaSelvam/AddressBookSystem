@@ -9,6 +9,10 @@ public class Contacts {
 	    private String zip;
 	    private String phoneNumber;
 	    private String email;
+	    
+		public Contacts() {
+			super();
+		}
 		public String getEmail() {
 			return email;
 		}

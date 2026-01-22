@@ -28,4 +28,29 @@ public class AddressBookServiceImpl  implements AddressBookService{
 			}
 		}
 	}
+
+	@Override
+	public void updateContacts(Contacts updatedContact) {
+		boolean flag=false;
+		for(Contacts oldcontact:contactList) {
+		if(oldcontact.getFirstName().equals(updatedContact.getFirstName())){
+			oldcontact.setLastName(updatedContact.getLastName());
+			oldcontact.setAddress(updatedContact.getAddress());
+			oldcontact.setCity(updatedContact.getCity());
+			oldcontact.setState(updatedContact.getState());
+			oldcontact.setZip(updatedContact.getZip());
+			oldcontact.setPhoneNumber(updatedContact.getPhoneNumber());
+			oldcontact.setEmail(updatedContact.getEmail());
+			flag=true;
+			}
+		}
+		if(flag==true){
+			System.out.println("Contact updated");
+		}else {
+			System.out.println("Contact not found");
+		}
+		
+		
+		}
+		
 }
