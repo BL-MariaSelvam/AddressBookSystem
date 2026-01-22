@@ -9,6 +9,10 @@ public class Contacts {
 	    private String zip;
 	    private String phoneNumber;
 	    private String email;
+	    
+		public Contacts() {
+			super();
+		}
 		public String getEmail() {
 			return email;
 		}
@@ -69,10 +73,27 @@ public class Contacts {
 			this.phoneNumber = phoneNumber;
 			this.email=email;
 		}
+		
+		@Override
+		public boolean equals(Object o) {
+		    if (this == o) return true;
+		    if (!(o instanceof Contacts)) return false;
+		    Contacts contact = (Contacts) o;
+		    return firstName.equalsIgnoreCase(contact.firstName) &&
+		           lastName.equalsIgnoreCase(contact.lastName);
+		}
+
+		@Override
+		public int hashCode() {
+		    return (firstName.toLowerCase() + lastName.toLowerCase()).hashCode();
+		}
+
 		@Override
 		public String toString() {
-			return "Contacts [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
-					+ city + ", state=" + state + ", zip=" + zip + ", phoneNumber=" + phoneNumber + ", Email=" + email + "]";
+		    return String.format(
+		            "Name: %s %s | Address: %s, %s, %s, %s | Phone: %s | Email: %s",
+		            firstName, lastName, address, city, state, zip, phoneNumber, email
+		    );
 		}
 	    
 }

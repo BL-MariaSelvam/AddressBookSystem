@@ -6,4 +6,24 @@ public interface AddressBookService {
 
 	void displayContacts();
 
+	void updateContacts(Contacts updatedContact);
+
+	void deleteContacts(String deletedfirstName);
+
+	void sortContactsByName();
+
+	void sortContactsByCity();
+
+	void sortContactsByState();
+
+	void sortContactsByZip();
+
+	void viewContactsByCity(String city1);
+
+	void viewContactsByState(String state1);
+
+	void searchContactsByCity(String citySearch);
+
+	void searchContactsByState(String stateSearch);
+
 }
