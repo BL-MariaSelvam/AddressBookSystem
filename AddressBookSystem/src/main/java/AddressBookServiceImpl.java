@@ -180,4 +180,43 @@ public class AddressBookServiceImpl  implements AddressBookService{
 	    }
 	}
 
+	
+	@Override
+	public void searchContactsByCity(String city) {
+	    if(contactList.isEmpty()) {
+	        System.out.println("No contacts available.");
+	        return;
+	    }
+
+	    // Filter contacts by city (case-insensitive)
+	    var results = contactList.stream()
+	            .filter(c -> c.getCity().equalsIgnoreCase(city))
+	            .toList();  // Java 16+; for earlier versions use collect(Collectors.toList())
+
+	    if(results.isEmpty()) {
+	        System.out.println("No contacts found in city: " + city);
+	    } else {
+	        System.out.println("Contacts in city " + city + ":");
+	        results.forEach(System.out::println);
+	    }
+	}
+	@Override
+	public void searchContactsByState(String state) {
+	    if(contactList.isEmpty()) {
+	        System.out.println("No contacts available.");
+	        return;
+	    }
+
+	    var results = contactList.stream()
+	            .filter(c -> c.getState().equalsIgnoreCase(state))
+	            .toList();
+
+	    if(results.isEmpty()) {
+	        System.out.println("No contacts found in state: " + state);
+	    } else {
+	        System.out.println("Contacts in state " + state + ":");
+	        results.forEach(System.out::println);
+	    }
+	}
+
 		}

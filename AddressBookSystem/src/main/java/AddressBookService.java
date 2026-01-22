@@ -22,4 +22,8 @@ public interface AddressBookService {
 
 	void viewContactsByState(String state1);
 
+	void searchContactsByCity(String citySearch);
+
+	void searchContactsByState(String stateSearch);
+
 }
