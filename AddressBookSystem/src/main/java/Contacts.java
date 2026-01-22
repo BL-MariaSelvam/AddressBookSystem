@@ -90,8 +90,10 @@ public class Contacts {
 
 		@Override
 		public String toString() {
-			return "Contacts [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
-					+ city + ", state=" + state + ", zip=" + zip + ", phoneNumber=" + phoneNumber + ", Email=" + email + "]";
+		    return String.format(
+		            "Name: %s %s | Address: %s, %s, %s, %s | Phone: %s | Email: %s",
+		            firstName, lastName, address, city, state, zip, phoneNumber, email
+		    );
 		}
 	    
 }

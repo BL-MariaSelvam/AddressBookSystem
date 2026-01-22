@@ -10,4 +10,6 @@ public interface AddressBookService {
 
 	void deleteContacts(String deletedfirstName);
 
+	void sortContactsByName();
+
 }

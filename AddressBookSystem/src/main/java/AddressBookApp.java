@@ -15,7 +15,8 @@ public class AddressBookApp {
 			System.out.println("2.View Contacts");
 			System.out.println("3.Edit Contacts");
 			System.out.println("4.Delete Contacts");
-			System.out.println("5.Exit");
+			System.out.println("5.Sorting by Name");
+			System.out.println("6.Exit");
 			System.out.println("Enter the option to do");
 			int option=sc.nextInt();
 			switch(option) {
@@ -69,6 +70,9 @@ public class AddressBookApp {
 				addressBookService.deleteContacts(deletedfirstName);
 				break;
 			case 5:
+				addressBookService.sortContactsByName();
+				break;
+			case 6:
 				System.out.println("Returning to home");
 				break;
 			default:

@@ -78,4 +78,22 @@ public class AddressBookServiceImpl  implements AddressBookService{
 	    }
 	}
 
+	@Override
+	public void sortContactsByName() {
+	    if(contactList.isEmpty()) {
+	        System.out.println("No contacts to sort.");
+	        return;
+	    }
+
+	    // Using Java Streams to sort
+	    contactList.stream()
+	            .sorted((c1, c2) -> {
+	                int cmp = c1.getFirstName().compareToIgnoreCase(c2.getFirstName());
+	                if(cmp != 0) return cmp;
+	                return c1.getLastName().compareToIgnoreCase(c2.getLastName());
+	            })
+	            .forEach(System.out::println);
+	}
+
+
 		}
