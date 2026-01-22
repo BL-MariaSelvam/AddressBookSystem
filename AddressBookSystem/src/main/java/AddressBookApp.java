@@ -16,7 +16,10 @@ public class AddressBookApp {
 			System.out.println("3.Edit Contacts");
 			System.out.println("4.Delete Contacts");
 			System.out.println("5.Sorting by Name");
-			System.out.println("6.Exit");
+			System.out.println("6.Sorting by city");
+			System.out.println("7.Sorting by state");
+			System.out.println("8.Sorting by zip");
+			System.out.println("9.Exit");
 			System.out.println("Enter the option to do");
 			int option=sc.nextInt();
 			switch(option) {
@@ -73,6 +76,15 @@ public class AddressBookApp {
 				addressBookService.sortContactsByName();
 				break;
 			case 6:
+				addressBookService.sortContactsByCity();
+				break;
+			case 7:
+				addressBookService.sortContactsByState();
+				break;
+			case 8:
+				addressBookService.sortContactsByZip();
+				break;
+			case 9:
 				System.out.println("Returning to home");
 				break;
 			default:

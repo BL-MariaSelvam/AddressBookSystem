@@ -1,6 +1,7 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -95,5 +96,38 @@ public class AddressBookServiceImpl  implements AddressBookService{
 	            .forEach(System.out::println);
 	}
 
+	@Override
+	public void sortContactsByCity() {
+	    if (contactList.isEmpty()) {
+	        System.out.println("No contacts to sort.");
+	        return;
+	    }
 
+	    contactList.stream()
+	            .sorted(Comparator.comparing(Contacts::getCity, String.CASE_INSENSITIVE_ORDER))
+	            .forEach(System.out::println);
+	}
+
+	@Override
+	public void sortContactsByState() {
+	    if (contactList.isEmpty()) {
+	        System.out.println("No contacts to sort.");
+	        return;
+	    }
+
+	    contactList.stream()
+	            .sorted(Comparator.comparing(Contacts::getState, String.CASE_INSENSITIVE_ORDER))
+	            .forEach(System.out::println);
+	}
+
+	@Override
+	public void sortContactsByZip() {
+	    if (contactList.isEmpty()) {
+	        System.out.println("No contacts to sort.");
+	        return;
+	    }
+	    contactList.stream()
+        .sorted(Comparator.comparing(Contacts::getZip)) // assuming ZIP is a String
+        .forEach(System.out::println);
+}
 		}

@@ -12,4 +12,10 @@ public interface AddressBookService {
 
 	void sortContactsByName();
 
+	void sortContactsByCity();
+
+	void sortContactsByState();
+
+	void sortContactsByZip();
+
 }
