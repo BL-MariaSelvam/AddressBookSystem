@@ -8,4 +8,6 @@ public interface AddressBookService {
 
 	void updateContacts(Contacts updatedContact);
 
+	void deleteContacts(String deletedfirstName);
+
 }

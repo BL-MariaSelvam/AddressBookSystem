@@ -1,6 +1,7 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class AddressBookServiceImpl  implements AddressBookService{
@@ -49,8 +50,27 @@ public class AddressBookServiceImpl  implements AddressBookService{
 		}else {
 			System.out.println("Contact not found");
 		}
-		
-		
+	}
+
+	@Override
+	public void deleteContacts(String deletedFirstName) {
+	    boolean flag = false;
+	    Iterator<Contacts> iterator = contactList.iterator();
+
+	    while(iterator.hasNext()) {
+	        Contacts contact = iterator.next();
+	        if(contact.getFirstName().equals(deletedFirstName)) {
+	            iterator.remove(); // safe removal
+	            flag = true;
+	            break; // remove only the first match, remove break if you want to delete all matches
+	        }
+	    }
+
+	    if(flag) {
+	        System.out.println("Contact deleted");
+	    } else {
+	        System.out.println("Contact not found");
+	    }
+	}
+
 		}
-		
-}
