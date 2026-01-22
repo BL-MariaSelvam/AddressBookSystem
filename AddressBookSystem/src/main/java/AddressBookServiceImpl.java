@@ -10,11 +10,16 @@ public class AddressBookServiceImpl  implements AddressBookService{
 	
 	@Override
 	public void addContact(Contacts contact) {
-		
+		 boolean exists = contactList.stream()
+		            .anyMatch(c -> c.equals(contact));
+
+		    if (exists) {
+		        System.out.println("Duplicate contact! Not added.");
+		    } else {
 		contactList.add(contact);
-		if(!contactList.isEmpty()) {
-			System.out.println("Contact Added Successfully and the List size will be "+contactList.size());
+		System.out.println("Contact Added Successfully and the List size will be "+contactList.size());
 		}
+		
 	}
 
 	@Override

@@ -73,6 +73,21 @@ public class Contacts {
 			this.phoneNumber = phoneNumber;
 			this.email=email;
 		}
+		
+		@Override
+		public boolean equals(Object o) {
+		    if (this == o) return true;
+		    if (!(o instanceof Contacts)) return false;
+		    Contacts contact = (Contacts) o;
+		    return firstName.equalsIgnoreCase(contact.firstName) &&
+		           lastName.equalsIgnoreCase(contact.lastName);
+		}
+
+		@Override
+		public int hashCode() {
+		    return (firstName.toLowerCase() + lastName.toLowerCase()).hashCode();
+		}
+
 		@Override
 		public String toString() {
 			return "Contacts [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
