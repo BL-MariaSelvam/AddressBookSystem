@@ -19,7 +19,9 @@ public class AddressBookApp {
 			System.out.println("6.Sorting by city");
 			System.out.println("7.Sorting by state");
 			System.out.println("8.Sorting by zip");
-			System.out.println("9.Exit");
+			System.out.println("9.view contaccts by city");
+			System.out.println("10.View contactsrting by state");
+			System.out.println("11.Exit");
 			System.out.println("Enter the option to do");
 			int option=sc.nextInt();
 			switch(option) {
@@ -85,6 +87,16 @@ public class AddressBookApp {
 				addressBookService.sortContactsByZip();
 				break;
 			case 9:
+				 System.out.print("Enter city: ");
+				    String city1 = sc.nextLine();
+				addressBookService.viewContactsByCity(city1);
+				break;
+			case 10:
+				 System.out.print("Enter State: ");
+				    String state1 = sc.nextLine();
+				addressBookService.viewContactsByState(state1);
+				break;
+			case 11:
 				System.out.println("Returning to home");
 				break;
 			default:

@@ -18,4 +18,8 @@ public interface AddressBookService {
 
 	void sortContactsByZip();
 
+	void viewContactsByCity(String city1);
+
+	void viewContactsByState(String state1);
+
 }

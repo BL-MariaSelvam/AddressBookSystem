@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class AddressBookServiceImpl  implements AddressBookService{
 
 	List<Contacts> contactList=new ArrayList<>();
+//	Map<String, List<Contacts>> getContactsByCity();
+//	Map<String, List<Contacts>> getContactsByState();
 	
 	@Override
 	public void addContact(Contacts contact) {
@@ -130,4 +134,50 @@ public class AddressBookServiceImpl  implements AddressBookService{
         .sorted(Comparator.comparing(Contacts::getZip)) // assuming ZIP is a String
         .forEach(System.out::println);
 }
+
+
+
+	@Override
+	public void viewContactsByCity(String city) {
+	    if(contactList.isEmpty()) {
+	        System.out.println("No contacts found.");
+	        return;
+	    }
+
+	    // Group all contacts by city
+	    Map<String, List<Contacts>> cityMap = contactList.stream()
+	            .collect(Collectors.groupingBy(c -> c.getCity().toLowerCase()));
+
+	    List<Contacts> contactsInCity = cityMap.get(city.toLowerCase());
+
+	    if(contactsInCity == null || contactsInCity.isEmpty()) {
+	        System.out.println("No contacts found in city: " + city);
+	    } else {
+	        System.out.println("Contacts in city " + city + ":");
+	        contactsInCity.forEach(System.out::println);
+	    }
+	}
+
+
+	@Override
+	public void viewContactsByState(String state) {
+	    if(contactList.isEmpty()) {
+	        System.out.println("No contacts found.");
+	        return;
+	    }
+
+	    // Group all contacts by state
+	    Map<String, List<Contacts>> stateMap = contactList.stream()
+	            .collect(Collectors.groupingBy(c -> c.getState().toLowerCase()));
+
+	    List<Contacts> contactsInState = stateMap.get(state.toLowerCase());
+
+	    if(contactsInState == null || contactsInState.isEmpty()) {
+	        System.out.println("No contacts found in state: " + state);
+	    } else {
+	        System.out.println("Contacts in state " + state + ":");
+	        contactsInState.forEach(System.out::println);
+	    }
+	}
+
 		}
