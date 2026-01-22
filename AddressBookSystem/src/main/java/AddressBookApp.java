@@ -22,10 +22,10 @@ public class AddressBookApp {
 			System.out.println("9.view contaccts by city");
 			System.out.println("10.View contactsrting by state");
 			System.out.println("11.Search Contacts By City");
-			System.out.println("11.Search Contacts By State");
-			System.out.println("12.Write contacts to JSON");
-			System.out.println("13.read contacts to from JSON");
-			System.out.println("14.Exit");
+			System.out.println("12.Search Contacts By State");
+			System.out.println("13.Write contacts to JSON");
+			System.out.println("14.read contacts to from JSON");
+			System.out.println("15.Exit");
 			System.out.println("Enter the option to do");
 			int option=sc.nextInt();
 			switch(option) {
@@ -92,22 +92,22 @@ public class AddressBookApp {
 				break;
 			case 9:
 				 System.out.print("Enter city: ");
-				    String city1 = sc.nextLine();
+				    String city1 = sc.next();
 				addressBookService.viewContactsByCity(city1);
 				break;
 			case 10:
 				 System.out.print("Enter State: ");
-				    String state1 = sc.nextLine();
+				    String state1 = sc.next();
 				addressBookService.viewContactsByState(state1);
 				break;
 			case 11:
 				 System.out.print("Enter city to search: ");
-				    String citySearch = sc.nextLine();
+				    String citySearch = sc.next();
 				    addressBookService.searchContactsByCity(citySearch);
 				break;
 			case 12:
 				System.out.print("Enter state to search: ");
-			    String stateSearch = sc.nextLine();
+			    String stateSearch = sc.next();
 			    addressBookService.searchContactsByState(stateSearch);
 				break;
 			case 13:
