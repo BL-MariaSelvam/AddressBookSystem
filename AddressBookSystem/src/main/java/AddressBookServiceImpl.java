@@ -231,4 +231,17 @@ public class AddressBookServiceImpl  implements AddressBookService{
 	    }
 	}
 	
+	public void writeContactsToCSV() {
+	    AddressBookCsvFileIO.writeData(contactList);
+	}
+
+	public void readContactsFromCSV() {
+	    List<Contacts> contactsFromFile = AddressBookCsvFileIO.readData();
+	    if (contactsFromFile != null && !contactsFromFile.isEmpty()) {
+	        contactList = contactsFromFile;
+	        System.out.println("Contacts loaded from CSV file");
+	    }
+	}
+
+	
 		}

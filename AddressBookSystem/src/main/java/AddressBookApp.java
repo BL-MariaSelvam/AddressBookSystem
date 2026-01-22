@@ -25,7 +25,9 @@ public class AddressBookApp {
 			System.out.println("12.Search Contacts By State");
 			System.out.println("13.Write contacts to JSON");
 			System.out.println("14.read contacts to from JSON");
-			System.out.println("15.Exit");
+			System.out.println("15.Write AddressBook to CSV");
+			System.out.println("16.Read AddressBook from CSV");
+			System.out.println("17.Exit");
 			System.out.println("Enter the option to do");
 			int option=sc.nextInt();
 			switch(option) {
@@ -118,6 +120,14 @@ public class AddressBookApp {
 				 ((AddressBookServiceImpl) addressBookService).readContactsFromJson();
 				break;
 			case 15:
+			    ((AddressBookServiceImpl) addressBookService).writeContactsToCSV();
+			    break;
+
+			case 16:
+			    ((AddressBookServiceImpl) addressBookService).readContactsFromCSV();
+			    break;
+
+			case 17:
 				System.out.println("Returning to home");
 				break;
 			default:
