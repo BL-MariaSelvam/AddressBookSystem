@@ -219,4 +219,16 @@ public class AddressBookServiceImpl  implements AddressBookService{
 	    }
 	}
 
+	public void writeContactsToJson() {
+	    AddressBookJsonFileIO.writeData(contactList);
+	}
+
+	public void readContactsFromJson() {
+	    List<Contacts> contactsFromFile = AddressBookJsonFileIO.readData();
+	    if (contactsFromFile != null) {
+	        contactList = contactsFromFile;
+	        System.out.println("Contacts loaded from JSON file");
+	    }
+	}
+	
 		}

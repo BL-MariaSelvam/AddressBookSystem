@@ -23,7 +23,9 @@ public class AddressBookApp {
 			System.out.println("10.View contactsrting by state");
 			System.out.println("11.Search Contacts By City");
 			System.out.println("11.Search Contacts By State");
-			System.out.println("12.Exit");
+			System.out.println("12.Write contacts to JSON");
+			System.out.println("13.read contacts to from JSON");
+			System.out.println("14.Exit");
 			System.out.println("Enter the option to do");
 			int option=sc.nextInt();
 			switch(option) {
@@ -109,6 +111,13 @@ public class AddressBookApp {
 			    addressBookService.searchContactsByState(stateSearch);
 				break;
 			case 13:
+				 
+				 ((AddressBookServiceImpl) addressBookService).writeContactsToJson();
+				break;
+			case 14:
+				 ((AddressBookServiceImpl) addressBookService).readContactsFromJson();
+				break;
+			case 15:
 				System.out.println("Returning to home");
 				break;
 			default:
