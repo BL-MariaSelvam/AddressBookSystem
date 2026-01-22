@@ -1,0 +1,9 @@
+package main.java;
+
+public interface AddressBookService {
+
+	void addContact(Contacts contact);
+
+	void displayContacts();
+
+}
